@@ -1,0 +1,106 @@
+#include <iostream>
+#include<string>
+#include<vector>
+#include<locale.h>
+
+using namespace std;
+
+int main(){
+
+  setlocale(LC_ALL, "Portuguese");
+  int tamanho_frase;
+  string frase;
+  int pos = 0;
+  int pos_a = 0;
+  int qnt_a = 0;
+  int qnt_palavras = 1;
+  string frase1, frase2, fraserep, frasetrocada;
+  vector <string> palavrasrep;
+  vector <string> palavrastroca;
+  int cont;
+  int a;
+  int i;
+  int repetidas = 0;
+  int n_de_troca = 0;
+
+//-------------------------------------------------------------------
+//Primeira parte:
+    cout << "Digite uma frase: " <<endl;
+    getline(cin,frase);
+
+
+      frase1 = frase;
+      frase2 = frase;
+      frasetrocada = frase;
+      tamanho_frase = frase.length();
+      
+    cout <<endl <<endl;
+    cout << "Essa frase possui " << tamanho_frase << " caracteres" <<endl <<endl;
+    cout << "*----------------------------------*" <<endl;
+    
+//-------------------------------------------------------------------
+//Segunda parte:
+    do{
+      pos = frase1.find(' ');
+      if(pos != -1){
+        qnt_palavras++;
+      }
+
+      palavrasrep.push_back(frase1.substr(0, pos));
+
+      frase1 = frase1.substr(pos + 1);
+
+
+    }while(pos != -1);
+
+    cout << "Essa frase possui " << qnt_palavras << " palavras" <<endl <<endl;
+    cout << "*----------------------------------*" <<endl;
+
+//-------------------------------------------------------------------
+//Terceira parte:
+
+        for(int i = 0 ; i < frase2.size(); i++){
+          if(frase2[i] == 'a'){
+            qnt_a++;
+          }
+        }
+    cout << "A letra *a* aparece " <<qnt_a  <<" vezes na frase" <<endl;
+
+         for(int a = 0; a < qnt_palavras  ; a++){
+           for(int j = 0; j < qnt_palavras ; j++){
+             if( palavrasrep[a] == palavrasrep[j] && a != j){
+              repetidas++;
+             }
+           }
+         }
+
+    cout <<endl << "*----------------------------------*" <<endl;
+    
+//-------------------------------------------------------------------
+//Quarta parte:
+
+    cout << "Houve(ram) " << repetidas / 2<<" repetição(ões) de uma mesma palavra" <<endl <<endl;
+    cout << "*----------------------------------*" <<endl;
+
+//-------------------------------------------------------------------
+//Quinta parte:
+
+    n_de_troca = palavrasrep.size();
+
+    palavrastroca = palavrasrep;
+    palavrastroca[0] = palavrasrep[n_de_troca - 1];
+    palavrastroca[n_de_troca - 1] = palavrasrep[0];
+    
+    cout << "Trocando a primeira palavra pela última, sua frase que antes era assim: " <<endl;
+    cout << "\" " <<frase <<" \"" <<endl <<endl;
+    cout << "Ficou assim: " <<endl;
+    cout << "\" ";
+    for(int y = 0; y < palavrastroca.size(); y++){
+        cout << palavrastroca[y] << " ";
+    }
+    cout << "\"";
+    cout << "*----------------------------------*" <<endl;
+
+  return 0;
+}
+
