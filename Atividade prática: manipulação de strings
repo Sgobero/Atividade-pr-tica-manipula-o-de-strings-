@@ -64,7 +64,10 @@ int main(){
             qnt_a++;
           }
         }
-    cout << "A letra *a* aparece " <<qnt_a  <<" vezes na frase" <<endl;
+    cout << "A letra *a* aparece " <<qnt_a  <<" vezes na frase" <<endl <<endl;
+    cout << "*----------------------------------*" <<endl;
+//-------------------------------------------------------------------
+//Quarta parte:
 
          for(int a = 0; a < qnt_palavras  ; a++){
            for(int j = 0; j < qnt_palavras ; j++){
@@ -73,11 +76,6 @@ int main(){
              }
            }
          }
-
-    cout <<endl << "*----------------------------------*" <<endl;
-    
-//-------------------------------------------------------------------
-//Quarta parte:
 
     cout << "Houve(ram) " << repetidas / 2<<" repetição(ões) de uma mesma palavra" <<endl <<endl;
     cout << "*----------------------------------*" <<endl;
@@ -99,6 +97,7 @@ int main(){
         cout << palavrastroca[y] << " ";
     }
     cout << "\"";
+    cout << endl;
     cout << "*----------------------------------*" <<endl;
 
   return 0;
